@@ -1,0 +1,21 @@
+LOGIN              - <ion-icon name="person"></ion-icon>
+LUPA               - <ion-icon name="search"></ion-icon>
+CARRINHO           - <ion-icon name="cart"></ion-icon>
+CORAÇÃO            - <ion-icon name="heart"></ion-icon>
+OLHO               - <ion-icon name="eye"></ion-icon>
+ESTRELA PREENCHIDA - <ion-icon name="star"></ion-icon>
+ESTRELA METADE     - <ion-icon name="star-half"></ion-icon>
+MENU               - <ion-icon name="menu"></ion-icon>
+FACEBOOK           - <ion-icon name="logo-facebook"></ion-icon>
+INSTAGRAM          - <ion-icon name="logo-instagram"></ion-icon>
+LINKEDIN           - <ion-icon name="logo-linkedin"></ion-icon>
+TWITTER             - <ion-icon name="logo-twitter"></ion-icon>
+
+fonte: https://ionic.io/ionicons
+
+OBSERVAÇÃO:
+Se você estiver usando o Ionic Framework, o ícones são empacotados por padrão, portanto, nenhuma instalação será necessária.
+Para usar Ionicons sem Ionic Framework? Coloque os <script>s abaixo no final da sua página, antes da tag de fechamento </body>, dessa forma iremos habilitar todos os ícones.
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

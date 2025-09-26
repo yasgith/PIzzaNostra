@@ -1,0 +1,523 @@
+/* FONTE ROBOTO DO GOOGLE */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/*ESTILO GENÉRICO/GLOBAL*/
+
+/*PSEUDO CLASSE COM AS VARIÁVEIS DOS PADRÕES DE CORES*/
+    :root{
+        --main-color: #f82318;/*COR PRINCIPAL*/
+        --bg: #13131a; /*COR DE FUNDO */
+        --bg-card: #0c0c14; /*COR DE FUNDO DO CARD*/
+        --cor-border: 0.1rem solid rgba(247, 243, 243, 0.3);/*COR E ESTILO DA BORDA*/
+    }
+
+/*PADRÃO DE TODO O SITE, INCLUINDO ZERAR ALGUMAS PROPRIEDADES PARA QUE POSSAMOS TER CONTROLE*/ 
+    *{
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        /*O box-sizing 
+        com o valor border-box faz com que o navegador não calcule a dimensão de um elemento somando bordas e margens com altura e largura.*/
+        box-sizing: border-box;
+        outline: none; /*CONTORNO*/
+        border: none;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: 0.2s linear;
+    }
+/*DEFINIÇÃO PADRÃO DE TODOS OS ELEMENTOS DO SITE*/
+
+    html{
+        font-size: 62.5%;
+
+        overflow-x: hidden; /*OCULTAR QUALQUER CONTEÚDO, QUE ESTEJA NA HORIZONTAL, QUE ULTRAPASSE A ÁREA VISÍVEL DO MEU ELEMENTO */
+        
+        scroll-padding-top: 9rem; /* ADICIONA UM ESPAÇO EXTRA NO TOPO DA ÁREA VISÍVEL QUANDO ROLAR PARA ALGUM ALVO, POR EXEMPLO: QUANDO CLICAR EM UM LINK DE ÂNCORA QUEREMOS QUE ELE SUBA DEIXANDO ESSE ESPAÇAMENTO DE 9rem */
+
+        scroll-behavior: smooth;/* COMPORTAMENTO SUAVE NA ROLAGEM DA PÁGINA QUANDO UM LINK INTERNO É CLICADO */
+    }
+
+/*CONFIGURAÇÃO DA BARRA DE ROLAGEM*/
+/* PARA CONFIGURAR A BARRA DE ROLAGEM, UTILIZAREMOS ALGUNS PSEUDOS SELETORES*/
+
+/*DEFINIÇÃO DA LARGURA DA BARRA DE ROLAGEM */
+    html::-webkit-scrollbar{
+        width: 0.8rem;
+    }
+
+/*ADIÇÃO DA TRANSPARÊNCIA NA BARRA DE ROLAGEM*/
+    html::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+/*APARÊNCIA DA BARRA DE ROLAGEM*/
+    html::-webkit-scrollbar-thumb{
+        background: #fff;
+        border-radius: 5rem;
+    }
+
+/*PADRÃO DE TODOS OS ELEMENTOS DA BODY*/
+/*UTILIZANDO A VARIÁVEL CRIADA NO ROOT*/
+    body{
+        background: var(--bg);/*COR PADRÃO DE FUNDO*/
+    }
+
+/*PADRÃO PARA CADA SEÇÃO*/
+    section{
+        padding: 2rem 7%;
+    }
+
+/*ESTILIZANDO AS CLASSES DOS TÍTULOS H1*/
+    .title{
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;/*TUDO EM MAIÚSCULO*/
+        padding-bottom: 3.5rem;
+        font-size: 4rem;
+    }
+
+/*ESTILIZANDO CONTEÚDO DO SPAN QUE ESTIVER DENTRO DA CLASSE TITLE*/
+    .title span{
+        color: var(--main-color);
+        text-transform: uppercase;
+    }
+
+/*ESTILO DOS BOTÕES*/
+    .btn{
+        margin-top: 1rem;
+        color: #fff;
+        display: inline-block;
+        font-size: 1.7rem;
+        background: var(--main-color);
+        padding: 0.9rem 3rem;
+        cursor: pointer;
+        border-radius: 2rem;
+    }
+
+/*AO PASSAR O MOUSE EM CIMA*/
+    .btn:hover{
+        letter-spacing: 0.2rem;
+    }
+
+/*FIM DAS ESTILIZAÇÕES GENERICAS/GLOBAIS*/
+
+
+/* INICIO DA ESTILIZAÇÃO DO HEADER/CABEÇALHO */
+
+    .header{
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 7%;
+        border-bottom: var(--cor-border);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        /*DEFINIÇÃO DA ORDEM PADRÃO DAS CAMADAS DO HTML*/
+        z-index: 1000;
+    }
+
+    .header .logo img{
+        height: 6.5rem;
+        border-radius: 100%;
+    }
+
+    .header .navbar a{
+        margin: 0 1rem;
+        font-size: 1.6rem;
+        color: #fff;
+    }
+
+    .header .navbar a:hover{
+        color: var(--main-color);
+        border-bottom: 0.1rem solid var(--main-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .header .icons{
+        display: flex;
+        align-items: center;
+    }
+
+    .header .icons div ion-icon{
+        color: #fff;
+        cursor: pointer;
+        font-size: 2.5rem;
+        padding: 1.5rem;
+    }
+
+    .header .icons div ion-icon:hover{
+        color: var(--main-color);
+    }
+
+    #menu-btn{
+        display: none;
+    }
+
+/*1ª SEÇÃO: HOME*/
+    .home{
+        position: relative;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        background: url(images/home.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-bottom: var(--cor-border);
+    }
+
+    .home::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .home .content{
+        max-width: 60rem;
+        position: relative;
+
+        /*UTILIZADO PARA ORGANIZAR OS ELEMENTOS DENTRO DO CONTAINER/CAIXA/DIV. A PROPRIEDADE Z-INDEX, PARA QUE SE TENHA UM MELHOR APROVEITAMENTO DA PROPRIEDADE, DEVEMOS TER TAMBÉM A PROPRIEDADE POSITION COM UM DOS VALORES: relative, absolute, fixed ou */
+        z-index: 2;
+    }
+
+    .home .content h3{
+        color: #fff;
+        font-size: 6rem;
+        text-transform: uppercase;/*MAIÚSCULO*/
+    }
+
+    .home .content p{
+        color: #fff;
+        font-size: 2rem;
+        line-height: 1.8; /*ESPAÇAMENTO ENTRE LINHAS*/
+        font-weight: lighter;/*FONTE MAIS CLARA*/
+        padding: 1rem 0;
+    }
+
+/*2ª SEÇÃO: ABOUT/SOBRE*/
+    .about .row{
+        display: flex;
+        align-items: center;
+        background: var(--bg-card);
+
+        /*QUANDO ALGUM DOS ITENS ULTRAPASSA A ÁREA VISÍVEL, OCORRE UMA QUEBRA DE LINHA, DESDE QUE TENHAMOS UM DISPLAY FLEX*/
+        flex-wrap: wrap;
+        border: var(--cor-border);
+    }
+
+    .about .row .image{
+        /*A IMAGEM GANHA DIMENSÕES DENTRO DO CONTAINER/CAIXA - 1º VALOR "1" = ROW: TAMANHO QUE CRESCE CONFORME O TAMANHO DA JANELA DO NAVEGADOR E O 2º VALOR "1" STRING: TAMANHO DA IMAGEM QUANDO ELA REDUZ E 45REM É A BASE TOTAL DA DIMENSÃO DO ESPAÇO OCUPADO PELA IMAGEM*/
+        flex: 1 1 45rem;
+    }
+
+    .about .row .image img{
+        width: 100%;
+    }
+
+    .about .row .content{
+        flex: 1 1 45rem;
+        padding: 2rem;
+    }
+
+    .about .row .content h3{
+        color: #fff;
+        font-size: 3rem;
+    }
+
+    .about .row .content p{
+        color: #ccc;
+        font-size: 1.5rem;
+        line-height: 1.8;/*ESPAÇAMENTO ENTRE LINHAS*/
+        padding: 1rem 0;
+    }
+
+/*3ª SEÇÃO: MENU/CARDÁPIO*/
+    .menu .container-menu{
+        display: grid;
+
+        /*DEFINIÇÃO DE LINHAS E COLUNAS. O AUTO-FIT: CRIA AUTOMÁTICAMENTE AS COLUNAS QUE CABERÃO DENTRO DO CONTAINER. DEFINIDO EM UM TAMANHO MÁXIMO DE 30REN E UM MÍNIMO DE 1 FRAÇÃO*/
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        
+        gap: 1.5rem;/*define os espaços (gutters) entre as linhas e colunas*/
+    }
+
+    .menu .container-menu .box{
+        padding: 5rem;
+        text-align: center;
+        border: var(--cor-border);
+        background-color: var(--bg-card);
+    }
+
+    .menu .container-menu .box img{
+        height: 18rem;
+        border-radius: 100%;
+    }
+
+    .menu .container-menu .box h3{
+        color: #fff;
+        font-size: 2rem;
+        padding: 1rem 0;
+    }
+
+    .menu .container-menu .box .price{
+        color: #fff;
+        font-size: 2.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .menu .container-menu .box .price span{
+        font-size: 1.5rem;
+        text-decoration: line-through;/*TACHADO*/
+        font-weight: lighter;/*NEGRITO LEVE - COR SUAVE*/
+    }
+
+    .menu .container-menu .box:hover {
+        background: #fff;
+    }
+
+    /*UTILIZANDO OUTRO PSEUDO CLASSE QUE TODO (*) O ELEMENTO FILHO (>) QUE ESTIVER DENTRO DA CLASSE BOX*/
+    .menu .container-menu .box:hover > * {
+        color: black;
+    }
+
+/*4ª SEÇÃO: PRODUCTS/PROMOÇÕES*/
+    .products .container-products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 1.5rem;/*define os espaços (gutters) entre as linhas e colunas*/
+    }
+
+    .products .container-products .box{
+        text-align: center;
+        border: var(--cor-border);
+        padding: 2rem;
+    }
+
+    .products .container-products .box .icons a ion-icon{
+        color: #fff;
+        font-size: 1.7rem;
+        height: 3rem;
+        width: 3rem;
+        line-height: 3rem;
+        margin: 0.3rem;
+        border: var(--cor-border);
+    }
+
+    .products .container-products .box .icons a ion-icon:hover{
+        background: var(--main-color);
+    }
+
+    .products .container-products .box .image{
+        padding: 2.5rem 0;
+    }
+
+    .products .container-products .box .image img{
+        height: 25rem;
+    }
+
+    .products .container-products .box .content h3{
+        color: #fff;
+        font-size: 2.5rem;
+    }
+    
+    .products .container-products .box .content .star{
+        padding: 1.5rem;
+    }
+
+    .products .container-products .box .content .star i{
+        color: var(--main-color);
+        font-size: 1.9rem;
+    }
+
+    .products .container-products .box .content .price{
+        color: #fff;
+        font-size: 2.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .products .container-products .box .content .price span{
+        font-size: 1.5rem;
+        text-transform: lowercase;
+        font-weight: lighter;/*NEGRITO LEVE - COR SUAVE*/
+    }
+
+/*5ª SEÇÃO: REVIEW/AVALIAÇÕES*/
+    .review .container-review {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 1.5rem;/*define os espaços (gutters) entre as linhas e colunas*/  
+    }
+
+    .review .container-review .box{
+        color: #fff;
+        border: var(--cor-border);
+        line-height: 1.8rem;
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+
+    .review .container-review .box p{
+        font-size: 1.7rem;
+        line-height: 1.8;
+        padding: 2rem 0;
+    }
+
+    .review .container-review .box .user{
+        height: 10rem;
+        width: 10rem;
+        border-radius: 100%;
+        object-fit: cover;/*USADO PARA ESPECIFICAR COMO O OBJETO/IMAGEM IRÁ SER REDIMENSIONADO*/
+    }
+
+    .review .container-review .box h3{
+        padding: 1rem 0;
+        font-size: 2.2rem;
+    }
+
+    .review .container-review .box .star{
+        font-size: 1.7rem;
+        color: var(--main-color);
+    }
+
+/*FOOTER/RODAPÉ*/
+    .footer{
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        padding: 4rem 0;
+    }
+
+    .footer .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 7%;
+    }
+
+    .footer .footer-col{
+        flex: 1 1 25rem;
+        margin: 1rem;
+    }
+
+    .footer .footer-col h4{
+        text-transform: uppercase;
+        font-size: 2rem;
+    }
+
+    .footer .footer-col h4 span{
+        color: var(--main-color);
+        text-transform: uppercase;
+    }
+
+    .footer .container .footer-col ul{
+        list-style: none;
+        padding-top: 0.7rem;
+    }
+
+    .footer .container .footer-col ul li{
+        margin-bottom: 1rem;
+    }
+
+    .footer .container .footer-col ul li a{
+        color: #ccc;
+        text-decoration: none;
+        font-size: 1.6rem;
+        transition: color 0.3s;
+    }
+
+    .footer .container .footer-col ul li a:hover{
+        color: var(--main-color);
+    }
+
+    .footer .container .footer-col .link-social{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    .footer .container .footer-col .link-social a{
+        color: #ccc;
+        font-size: 3rem;
+        transition: color 0.3s;
+    }
+
+    .footer .container .footer-col .link-social a:hover{
+        color: var(--main-color);
+    }
+
+    .footer .footer-bottom{
+        padding: 1rem 0;
+        font-size: 1.6rem;
+        border-top: var(--cor-border);
+        margin-top: 2rem;
+        color: #ccc;
+    }
+
+/* MÉDIA QUERIES - RESPONSIVIDADE */
+/* SÍNTAXE: @media (condição) {
+                Estilos que serão aplicados se a condição for verdadeira
+            }
+*/
+
+    @media(max-width: 991px){
+        html{
+            font-size: 55%;
+        }
+
+        .header{
+            padding: 1.5rem 2rem;
+        }
+
+        section{
+            padding: 2rem;
+        }
+    }
+
+/*ESTILIZAÇÃO PARA CELULARES */
+
+    @media(max-width: 768px){
+        #menu-btn{
+            display: inline-block;
+        }
+
+        .header .navbar{
+            position: absolute;
+            top: 100%;
+            right: -100%;
+            background: #fff;
+            width: 30rem;
+            height: calc(100vh - 9.5rem);
+        }
+
+        .header .navbar a{
+            color: var(--bg-card);
+            display: block;
+            margin: 1.5rem;
+            padding: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .home{
+            background-position: left;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .home .content h3{
+            font-size: 4.5rem;
+        }
+
+        .home .content p{
+            font-size: 1.5rem;
+        }
+    }
